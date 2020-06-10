@@ -1,10 +1,18 @@
 import React from "react";
+import { ApolloProvider } from "@apollo/react-hooks";
+import client from "./services/apolloClient";
 
-// Pages
-import Home from "./pages/Home";
+import StyledGlobal from "./css/styledGlobal";
+
+import Router from "./routes";
 
 function App() {
-  return <Home />;
+  return (
+    <ApolloProvider client={client}>
+      <Router />
+      <StyledGlobal />
+    </ApolloProvider>
+  );
 }
 
 export default App;

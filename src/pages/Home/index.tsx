@@ -1,11 +1,20 @@
 import React from "react";
 
 import { Container } from "./styles";
+import { iGET_POKEMON_ARR } from "../../services/querys";
 
-const Home: React.FC = () => {
+interface Props {
+  data: iGET_POKEMON_ARR;
+}
+
+const Home: React.FC<Props> = ({ data }) => {
   return (
     <Container>
-      <h1>Home</h1>
+      <ul>
+        {data?.pokemons.map((poke) => (
+          <li key={poke.id}>{poke.name}</li>
+        ))}
+      </ul>
     </Container>
   );
 };
