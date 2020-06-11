@@ -4,6 +4,9 @@ import { background, characters } from "../../css/constants";
 export const Container = styled.div`
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   padding: 4rem;
 
@@ -120,5 +123,21 @@ export const BoxRangeValue = styled.div`
   p {
     font-weight: bold;
     font-size: 1.8rem;
+  }
+`;
+
+export const ContentCheck = styled.div`
+  .labelTypes {
+    color: ${characters.paragraph};
+
+    margin: 1rem 0;
+  }
+
+  .checks {
+    .checkUl {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(9rem, 1fr));
+      grid-gap: 1rem;
+    }
   }
 `;

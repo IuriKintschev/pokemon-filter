@@ -2,9 +2,8 @@ import styled from "styled-components";
 import { characters } from "../../css/constants";
 
 export const Container = styled.div`
-  width: 25%;
   height: 100%;
-  min-width: 25rem;
+  min-width: 30rem;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import InputRange from "react-input-range";
+import Checkbox from "../../components/Chekbox";
 
-import { Container, RangeContainer, BoxRangeValue } from "./styles";
+import {
+  Container,
+  RangeContainer,
+  BoxRangeValue,
+  ContentCheck,
+} from "./styles";
 
 interface ValueRange {
   min: number;
@@ -9,12 +15,17 @@ interface ValueRange {
 }
 
 const FilterMenu: React.FC = () => {
-  const [range, setRange] = React.useState<ValueRange>({ min: 2, max: 15 });
+  const [range, setRange] = useState<ValueRange>({ min: 2, max: 15 });
+  const [checked, setChecked] = useState<boolean>(false);
+
+  function handlerCheck(event: React.ChangeEvent<HTMLInputElement>) {
+    setChecked(event.target.checked);
+  }
+
   return (
     <Container>
-      <h1 className="title">Filtro</h1>
-
       <RangeContainer>
+        <h1 className="title">Filtro</h1>
         <p className="cplabel">maxCP</p>
 
         <InputRange
@@ -34,6 +45,24 @@ const FilterMenu: React.FC = () => {
           </div>
         </BoxRangeValue>
       </RangeContainer>
+
+      <ContentCheck>
+        <p className="labelTypes">Types</p>
+
+        <div className="checks">
+          <ul className="checkUl" >
+            {[...Array(18)].map((_, index) => (
+              <li key={String(index)}>
+                <Checkbox
+                  checked={checked}
+                  handlerCheck={handlerCheck}
+                  label={String(index)}
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </ContentCheck>
     </Container>
   );
 };
