@@ -1,9 +1,10 @@
 import styled from "styled-components";
-import { characters } from "../../css/constants";
+import { characters, device } from "../../css/constants";
 
 export const Container = styled.div`
   height: 100%;
-  min-width: 30rem;
+  width: 100%;
+  max-width: 30rem;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -89,5 +90,17 @@ export const Container = styled.div`
     margin: 0.6rem;
     display: flex;
     align-items: flex-end;
+  }
+
+  @media ${device.laptop} {
+    max-width: 22rem;
+  }
+
+  @media ${device.mobileL} {
+    max-width: 100%;
+
+    main, footer {
+      display: none;
+    }
   }
 `;

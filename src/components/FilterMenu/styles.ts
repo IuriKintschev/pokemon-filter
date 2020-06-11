@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { background, characters } from "../../css/constants";
+import { background, characters, device } from "../../css/constants";
 
 export const Container = styled.div`
   width: 100%;
@@ -24,6 +24,16 @@ export const Container = styled.div`
     font-size: 3.5rem;
 
     margin-bottom: 2rem;
+  }
+
+  @media ${device.laptop} {
+    max-width: 35rem;
+  }
+
+  @media ${device.mobileL} {
+    max-width: 100%;
+
+    border-radius: 50px 50px 0px 0px;
   }
 `;
 

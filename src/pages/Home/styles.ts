@@ -1,12 +1,18 @@
 import styled from "styled-components";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import "react-perfect-scrollbar/dist/css/styles.css";
-import { background, characters } from "../../css/constants";
+import { background, characters, device } from "../../css/constants";
 
 export const Container = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
+
+  justify-content: space-between;
+
+  @media ${device.mobileL} {
+    flex-direction: column;
+  }
 `;
 
 export const MainContent = styled.div`
@@ -31,7 +37,7 @@ export const MainContent = styled.div`
 
   .gridPoke {
     display: grid;
-    grid-template-columns: repeat(2, minmax(9rem, 1fr));
+    grid-template-columns: repeat(3, minmax(9rem, 1fr));
     grid-gap: 1.5rem;
   }
 
@@ -49,6 +55,24 @@ export const MainContent = styled.div`
     &:hover {
       width: 15px;
     }
+  }
+
+  /* for small screen */
+  @media ${device.laptopL} {
+    .gridPoke {
+      grid-template-columns: repeat(2, minmax(9rem, 1fr));
+    }
+  }
+
+  @media ${device.laptop} {
+    .gridPoke {
+      grid-template-columns: repeat(1, minmax(9rem, 1fr));
+    }
+  }
+
+  @media ${device.mobileL} {
+    order: +1;
+    border-radius: 0;
   }
 `;
 
