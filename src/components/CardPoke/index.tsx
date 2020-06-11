@@ -1,21 +1,26 @@
 import React from "react";
+import { ModelPoke } from "../../interfaces/pokemon";
 
 import { Container, ImageDiv, ContentStatus } from "./styles";
 
-const CardPoke: React.FC = () => {
+interface Props {
+  pokemon: ModelPoke.Pokemon;
+}
+
+const CardPoke: React.FC<Props> = ({ pokemon }) => {
   return (
     <Container>
       <div className="wrapperImgWithStatus">
-        <ImageDiv imgUrl="https://img.pokemondb.net/artwork/bulbasaur.jpg" />
+        <ImageDiv imgUrl={pokemon.image} />
 
         <ContentStatus>
           <header>
-            <span>Bulbasaur</span>
-            <p>Grass, Poison</p>
+            <span>{pokemon.name}</span>
+            <p>{pokemon.types.join(", ")}</p>
           </header>
 
           <div className="statusCP">
-            <p>951</p>
+            <p>{pokemon.maxCP}</p>
           </div>
         </ContentStatus>
       </div>

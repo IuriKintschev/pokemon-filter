@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { background, characters } from "./constants";
+import { background, characters, device } from "./constants";
 
 export default createGlobalStyle`
     * {
@@ -34,4 +34,10 @@ export default createGlobalStyle`
     ul {
         list-style: none;
     }
+
+    @media ${device.laptop} {
+        html {
+        font-size: 50%;
+    }
+  }
 `;

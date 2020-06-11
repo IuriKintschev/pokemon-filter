@@ -1,4 +1,5 @@
 import React from "react";
+import { usePokeState } from "../../store/Pokemon";
 
 import { Container, MainContent, Scroll } from "./styles";
 
@@ -7,6 +8,8 @@ import FilterMenu from "../../components/FilterMenu";
 import Cardpoke from "../../components/CardPoke";
 
 const Home: React.FC = () => {
+  const dataState = usePokeState((state) => state.data);
+
   return (
     <Container>
       <MenuItens />
@@ -19,9 +22,9 @@ const Home: React.FC = () => {
 
         <Scroll>
           <ul className="gridPoke">
-            {[...Array(18)].map((_, index) => (
-              <li key={String(index)}>
-                <Cardpoke />
+            {dataState?.pokemons.map((poke) => (
+              <li key={poke.id}>
+                <Cardpoke pokemon={poke} />
               </li>
             ))}
           </ul>
