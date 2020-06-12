@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { characters } from "../../css/constants";
+import { characters, device } from "../../css/constants";
 
 const blueConst = characters.titleBlue;
 
@@ -83,5 +83,17 @@ export const Container = styled.div`
     text-shadow: ${({ checked }: Props) =>
       checked ? "0px 0px 6px #00c1fd66" : ""};
     transition: 0.8s;
+  }
+
+  @media ${device.laptop} {
+    label {
+      font-size: 1.2rem;
+    }
+  }
+
+  @media ${device.mobileL} {
+    label {
+      font-size: 1.7rem;
+    }
   }
 `;

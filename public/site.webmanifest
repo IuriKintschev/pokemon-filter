@@ -1,6 +1,6 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "Pokemon Filter",
+    "short_name": "Pokemon Filter",
     "icons": [
         {
             "src": "./images/android-chrome-192x192.png",
