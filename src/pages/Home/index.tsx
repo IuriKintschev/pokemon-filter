@@ -8,7 +8,7 @@ import FilterMenu from "../../components/FilterMenu";
 import Cardpoke from "../../components/CardPoke";
 
 const Home: React.FC = () => {
-  const dataState = usePokeState((state) => state.data);
+  const dataState = usePokeState((state) => state.dataPokemons);
 
   return (
     <Container>
@@ -17,7 +17,9 @@ const Home: React.FC = () => {
       <MainContent>
         <header>
           <h1 className="title">Lista de pokémons</h1>
-          <p className="subtitle">Total visíveis: ***</p>
+          <p className="subtitle">
+            Total visíveis: {dataState?.pokemons.length}
+          </p>
         </header>
 
         <Scroll>

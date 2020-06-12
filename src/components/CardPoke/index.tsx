@@ -1,5 +1,6 @@
 import React from "react";
 import { ModelPoke } from "../../interfaces/pokemon";
+import { getColorByCP } from "../../utils/scripts";
 
 import { Container, ImageDiv, ContentStatus } from "./styles";
 
@@ -13,7 +14,7 @@ const CardPoke: React.FC<Props> = ({ pokemon }) => {
       <div className="wrapperImgWithStatus">
         <ImageDiv imgUrl={pokemon.image} />
 
-        <ContentStatus>
+        <ContentStatus colorCp={getColorByCP(pokemon.maxCP)}>
           <header>
             <span>{pokemon.name}</span>
             <p>{pokemon.types.join(", ")}</p>
@@ -25,7 +26,7 @@ const CardPoke: React.FC<Props> = ({ pokemon }) => {
         </ContentStatus>
       </div>
 
-      <p>001</p>
+      <p>{pokemon.number}</p>
     </Container>
   );
 };

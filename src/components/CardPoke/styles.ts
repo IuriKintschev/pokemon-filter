@@ -1,8 +1,12 @@
 import styled from "styled-components";
-import { characters, cp } from "../../css/constants";
+import { characters } from "../../css/constants";
 
-interface Props {
+interface PropsImage {
   imgUrl: string;
+}
+
+interface PropsStatus {
+  colorCp: string;
 }
 
 export const Container = styled.div`
@@ -31,8 +35,8 @@ export const ImageDiv = styled.div`
   width: 6.4rem;
   height: 6.4rem;
 
-  background: transparent url(${({ imgUrl }: Props) => imgUrl}) 0% 0% no-repeat
-    padding-box;
+  background: transparent url(${({ imgUrl }: PropsImage) => imgUrl}) 0% 0%
+    no-repeat padding-box;
   background-size: contain;
   border: 1px solid #dbdbdb;
   border-radius: 14px;
@@ -56,7 +60,7 @@ export const ContentStatus = styled.div`
   }
 
   .statusCP {
-    background: ${cp.Purple};
+    background: ${({ colorCp }: PropsStatus) => colorCp};
     display: flex;
     align-items: center;
     justify-content: center;

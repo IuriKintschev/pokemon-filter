@@ -1,12 +1,12 @@
 import create from "zustand";
 import { Middleware, PokeState } from "./types";
-import { produce } from "../../utils/scripts";
+import { produce, initialState } from "../../utils/scripts";
 
 /**
  * debug middleware
  */
 
-const log: Middleware<PokeState> = (config) => (set, get, api) =>
+const _log: Middleware<PokeState> = (config) => (set, get, api) =>
   config(
     (args) => {
       console.log("  setter", args);
@@ -19,14 +19,19 @@ const log: Middleware<PokeState> = (config) => (set, get, api) =>
 
 export const [usePokeState, usePokeApi] = create<PokeState>(
   // debugger
-  log(
+  _log(
     (set, get): PokeState => ({
-      data: null,
+      //state
+      dataPokemons: null,
+      filters: [...initialState],
+      maxCp: 3904,
+      minCp: 0,
 
+      // actions
       setData: (newData) => {
         set(
           produce<PokeState>((state) => {
-            state.data = newData;
+            state.dataPokemons = newData;
           })
         );
       },

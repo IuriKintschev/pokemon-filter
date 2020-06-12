@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import InputRange from "react-input-range";
 import Checkbox from "../../components/Chekbox";
+import shallow from "zustand/shallow";
+import { usePokeState } from "../../store/Pokemon";
 
 import {
   Container,
@@ -15,12 +17,12 @@ interface ValueRange {
 }
 
 const FilterMenu: React.FC = () => {
-  const [range, setRange] = useState<ValueRange>({ min: 2, max: 15 });
-  const [checked, setChecked] = useState<boolean>(false);
+  const [filters, minCp, maxCp] = usePokeState(
+    (state) => [state.filters, state.minCp, state.maxCp],
+    shallow
+  );
 
-  function handlerCheck(event: React.ChangeEvent<HTMLInputElement>) {
-    setChecked(event.target.checked);
-  }
+  const [range, setRange] = useState<ValueRange>({ min: minCp, max: maxCp });
 
   return (
     <Container>
@@ -29,7 +31,7 @@ const FilterMenu: React.FC = () => {
         <p className="cplabel">maxCP</p>
 
         <InputRange
-          maxValue={20}
+          maxValue={3904}
           minValue={0}
           value={range}
           onChange={(value) => setRange(value as ValueRange)}
@@ -50,14 +52,10 @@ const FilterMenu: React.FC = () => {
         <p className="labelTypes">Types</p>
 
         <div className="checks">
-          <ul className="checkUl" >
-            {[...Array(18)].map((_, index) => (
-              <li key={String(index)}>
-                <Checkbox
-                  checked={checked}
-                  handlerCheck={handlerCheck}
-                  label={String(index)}
-                />
+          <ul className="checkUl">
+            {filters.map((item) => (
+              <li key={String(item.id)}>
+                <Checkbox filter={item} />
               </li>
             ))}
           </ul>

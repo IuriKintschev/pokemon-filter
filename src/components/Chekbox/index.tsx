@@ -1,25 +1,30 @@
 import React from "react";
+import { filter } from "../../store/Pokemon/types";
 
 import { Container } from "./styles";
 
 interface Props {
-  label: string;
-  checked: boolean;
-  handlerCheck(e: React.ChangeEvent<HTMLInputElement>): void;
+  filter: filter;
 }
 
-const Chekbox: React.FC<Props> = ({ checked, handlerCheck, label }) => {
+const Chekbox: React.FC<Props> = ({ filter }) => {
+  const [checked, setChecked] = React.useState<boolean>(filter.status);
+
+  function handlerCheck(event: React.ChangeEvent<HTMLInputElement>) {
+    setChecked(event.target.checked);
+  }
+
   return (
     <Container checked={checked}>
       <input
         className="styled-checkbox"
-        id={`${label}_check`}
+        id={`${filter.type}_check`}
         type="checkbox"
-        value={label}
+        value={filter.type}
         checked={checked}
         onChange={handlerCheck}
       />
-      <label htmlFor={`${label}_check`}>{label}</label>
+      <label htmlFor={`${filter.type}_check`}>{filter.type}</label>
     </Container>
   );
 };
