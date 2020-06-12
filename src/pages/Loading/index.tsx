@@ -1,12 +1,15 @@
 import React from "react";
+import logoPoke from "../../assets/pokemon.svg";
 
-// import { Container } from './styles';
+import { Container } from "./styles";
 
 const Loading: React.FC = () => {
   return (
-    <div>
-      <h1>Loading</h1>
-    </div>
+    <Container>
+      <div className="contentImg">
+        <img src={logoPoke} alt="pokebola" />
+      </div>
+    </Container>
   );
 };
 

@@ -1,11 +1,9 @@
 import React from "react";
 
-// import { Container } from './styles';
-
 const Error: React.FC = () => {
   return (
     <div>
-      <h1>Error</h1>
+      <h1>Error Request</h1>
     </div>
   );
 };
