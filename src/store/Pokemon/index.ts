@@ -52,9 +52,11 @@ export const [usePokeState, usePokeApi] = create<PokeState>(
         } else if (filters.length >= 1) {
           get().dataPokemons?.pokemons.forEach((poke) => {
             const cp = poke.maxCP;
+
             poke.types.forEach((ty) =>
               filters.forEach((fi) => {
                 if (
+                  !pokemons.pokemons.includes(poke) &&
                   fi.type.toLowerCase().trim() === ty.toLowerCase().trim() &&
                   cp >= min &&
                   cp <= max
