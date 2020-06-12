@@ -64,7 +64,7 @@ export const MainContent = styled.div`
     }
   }
 
-  @media ${device.laptop} {
+  @media ${device.laptopS} {
     .gridPoke {
       grid-template-columns: repeat(1, minmax(9rem, 1fr));
     }
