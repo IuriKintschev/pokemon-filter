@@ -1,4 +1,5 @@
 import { cp as colorCp } from "../css/constants";
+import { Middleware, PokeState } from "../store/Pokemon/types";
 
 /**
  * Funcao para setar valor em state imutavel
@@ -26,6 +27,23 @@ export function getColorByCP(cp: number): string {
   }
 }
 
+/**
+ * Middleware pra imprimir logs no console do estado
+ */
+export const _log: Middleware<PokeState> = (config) => (set, get, api) =>
+  config(
+    (args) => {
+      console.log("  setter", args);
+      set(args);
+      console.log("  new state", get());
+    },
+    get,
+    api
+  );
+
+/**
+ * Cola do estado de filters
+ */
 export const initialState = [
   {
     id: 1,
