@@ -1,17 +1,23 @@
 import React from "react";
 import { filter } from "../../store/Pokemon/types";
+import { usePokeState } from "../../store/Pokemon";
+import shallow from "zustand/shallow";
 
 import { Container } from "./styles";
 
 interface Props {
   filter: filter;
+  index: number;
 }
 
-const Chekbox: React.FC<Props> = ({ filter }) => {
-  const [checked, setChecked] = React.useState<boolean>(filter.status);
+const Chekbox: React.FC<Props> = ({ filter, index }) => {
+  const [setStatusFilter, checked] = usePokeState(
+    (state) => [state.setStatusFilter, state.filters[index].status],
+    shallow
+  );
 
   function handlerCheck(event: React.ChangeEvent<HTMLInputElement>) {
-    setChecked(event.target.checked);
+    setStatusFilter(filter.id, event.target.checked);
   }
 
   return (

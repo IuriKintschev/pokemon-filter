@@ -8,7 +8,7 @@ import FilterMenu from "../../components/FilterMenu";
 import Cardpoke from "../../components/CardPoke";
 
 const Home: React.FC = () => {
-  const dataState = usePokeState((state) => state.dataPokemons);
+  const dataState = usePokeState((state) => state.getterdataPokeByFilter());
 
   return (
     <Container>

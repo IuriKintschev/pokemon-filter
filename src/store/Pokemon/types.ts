@@ -1,5 +1,5 @@
 import { StateCreator, SetState, GetState, StoreApi } from "zustand";
-// import { ModelPoke } from "../../interfaces/pokemon";
+import { Range } from "react-input-range";
 import { iGET_POKEMON_ARR } from "../../services/querys";
 
 /**
@@ -22,5 +22,11 @@ export interface PokeState {
   maxCp: number;
   minCp: number;
 
+  //computed values
+  getterdataPokeByFilter(): iGET_POKEMON_ARR | null;
+
+  // actions
   setData(n: iGET_POKEMON_ARR): void;
+  setStatusFilter(s: number, b: boolean): void;
+  setCpValue(n: number | Range): void;
 } // type State

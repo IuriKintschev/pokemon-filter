@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import InputRange from "react-input-range";
+import React from "react";
+import InputRange, { Range } from "react-input-range";
 import Checkbox from "../../components/Chekbox";
 import shallow from "zustand/shallow";
 import { usePokeState } from "../../store/Pokemon";
@@ -11,18 +11,11 @@ import {
   ContentCheck,
 } from "./styles";
 
-interface ValueRange {
-  min: number;
-  max: number;
-}
-
 const FilterMenu: React.FC = () => {
-  const [filters, minCp, maxCp] = usePokeState(
-    (state) => [state.filters, state.minCp, state.maxCp],
+  const [filters, minCp, maxCp, setCpValue] = usePokeState(
+    (state) => [state.filters, state.minCp, state.maxCp, state.setCpValue],
     shallow
   );
-
-  const [range, setRange] = useState<ValueRange>({ min: minCp, max: maxCp });
 
   return (
     <Container>
@@ -33,17 +26,17 @@ const FilterMenu: React.FC = () => {
         <InputRange
           maxValue={3904}
           minValue={0}
-          value={range}
-          onChange={(value) => setRange(value as ValueRange)}
+          value={{ max: maxCp, min: minCp }}
+          onChange={(value: number | Range) => setCpValue(value)}
         />
 
         <BoxRangeValue>
           <div>
-            <p>{range.min}</p>
+            <p>{minCp}</p>
           </div>
 
           <div>
-            <p>{range.max}</p>
+            <p>{maxCp}</p>
           </div>
         </BoxRangeValue>
       </RangeContainer>
@@ -53,9 +46,9 @@ const FilterMenu: React.FC = () => {
 
         <div className="checks">
           <ul className="checkUl">
-            {filters.map((item) => (
+            {filters.map((item, index) => (
               <li key={String(item.id)}>
-                <Checkbox filter={item} />
+                <Checkbox filter={item} index={index} />
               </li>
             ))}
           </ul>
