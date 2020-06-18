@@ -1,12 +1,12 @@
 import React from "react";
-import { filter } from "../../store/Pokemon/types";
+import { Filter } from "../../store/Pokemon/types";
 import { usePokeState } from "../../store/Pokemon";
 import shallow from "zustand/shallow";
 
 import { Container } from "./styles";
 
 interface Props {
-  filter: filter;
+  filter: Filter;
   index: number;
 }
 

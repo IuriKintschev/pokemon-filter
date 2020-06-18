@@ -1,3 +1,5 @@
+import { CPColors } from "../interfaces/colors";
+
 /**
  * Colors
  */
@@ -5,14 +7,28 @@ export const background = {
   Root: "#FFF",
   Content: "#F4F4F4",
 };
+/**
+ * 
+ * um padrão em JS é que constantes SEJAM_ESCRITAS_ASSIM, entao poderia ser
+ export const CHARACTERS = {...}
+ uma sugestão de abordagem diferente seria também, exportar só um 
+ CONFIG = {
+    CHARACTERS: {
+      TITLE: ...
+    },
+    CP: {...},
+    BACKGROUND: {...} 
+ }
+ */
 
 export const characters = {
   title: "#333",
   paragraph: "#939393",
   titleBlue: "#00A7FD",
 };
-
-export const cp = {
+// tipando dessa forma vc garante que nao vao colocar um número aqui e quando voce vai acessar
+// vai quebrar, ou que vc esqueça de adicionar alguma cor, isso serve também pras demais consts
+export const cp:CPColors = {
   Orange: "#F87060", // 0-500
   Purple: "#662C91", // 501-1000
   Yelow: "#F5B700", // 1001-1500

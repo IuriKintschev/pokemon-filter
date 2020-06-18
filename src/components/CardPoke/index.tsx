@@ -8,25 +8,25 @@ interface Props {
   pokemon: ModelPoke.Pokemon;
 }
 
-const CardPoke: React.FC<Props> = ({ pokemon }) => {
+const CardPoke: React.FC<Props> = ({ pokemon: {maxCP, name, types, image, number} }) => {
   return (
     <Container>
       <div className="wrapperImgWithStatus">
-        <ImageDiv imgUrl={pokemon.image} />
+        <ImageDiv imgUrl={image} />
 
-        <ContentStatus colorCp={getColorByCP(pokemon.maxCP)}>
+        <ContentStatus colorCp={getColorByCP(maxCP)}>
           <header>
-            <span>{pokemon.name}</span>
-            <p>{pokemon.types.join(", ")}</p>
+            <span>{name}</span>
+            <p>{types.join(", ")}</p>
           </header>
 
           <div className="statusCP">
-            <p>{pokemon.maxCP}</p>
+            <p>{maxCP}</p>
           </div>
         </ContentStatus>
       </div>
 
-      <p>{pokemon.number}</p>
+      <p>{number}</p>
     </Container>
   );
 };

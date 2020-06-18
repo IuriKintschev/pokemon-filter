@@ -17,7 +17,7 @@ describe("Test for Home page", () => {
         },
       ],
     } as iGET_POKEMON_ARR;
-
+    // Home não espera receber um data como props, esse teste funciona?
     const { getByText } = render(<Home data={data} />);
     const linkElement = getByText(/Bulbasaur/i);
     expect(linkElement).toBeInTheDocument();

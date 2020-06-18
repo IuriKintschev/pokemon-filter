@@ -23,10 +23,14 @@ export const [usePokeState, usePokeApi] = create<PokeState>(
       const min = get().minCp;
 
       // filter
+      // em vez de fazer essa lógica pra popular result pra depois retornar ele, tu poderia retornar diretamente a funcão
       if (filters.length === 0) {
         get().dataPokemons?.pokemons.map((poke) => {
           const cp = poke.maxCP;
+          // essa validacão ta sendo feita em dois lugares, poderias reduzir a repetição de código colocando dentor de uma função que recebe um cp
+          // e verifica se está dentro do range de valores min e max
           if (cp >= min && cp <= max) {
+            // a semantica disso ficou bem estranha, pokemons.pokemons?
             pokemons.pokemons.push(poke);
           }
         });
@@ -37,6 +41,8 @@ export const [usePokeState, usePokeApi] = create<PokeState>(
           const cp = poke.maxCP;
 
           poke.types.forEach((ty) =>
+          // talvez isso seja mais uma opinião pessoal, mas quando o nome é pequeno (filter) prefiro bem mais do que encurtar pra
+          // algo que não existe nem padrao -> diferente de encurtar currentBackgroundColor para currBgColor
             filters.forEach((fi) => {
               if (
                 !pokemons.pokemons.includes(poke) &&

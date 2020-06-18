@@ -10,7 +10,7 @@ import Cardpoke from "../../components/CardPoke";
 const Home: React.FC = () => {
   const dataState = usePokeState((state) => state.getterdataPokeByFilter());
 
-  return (
+  return (    
     <Container>
       <MenuItens />
 

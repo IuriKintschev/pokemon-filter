@@ -9,7 +9,8 @@ export type Middleware<S> = (
   config: StateCreator<S>
 ) => (set: SetState<S>, get: GetState<S>, api: StoreApi<S>) => S; // Type Middleware
 
-export interface filter {
+// padrão de Tipo com letra maiscula
+export interface Filter {
   id: number;
   type: string;
   status: boolean;
@@ -18,7 +19,7 @@ export interface filter {
 export interface PokeState {
   // state
   dataPokemons: iGET_POKEMON_ARR | null;
-  filters: filter[];
+  filters: Filter[];
   maxCp: number;
   minCp: number;
 

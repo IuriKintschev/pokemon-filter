@@ -1,5 +1,6 @@
 import { cp as colorCp } from "../css/constants";
 import { Middleware, PokeState } from "../store/Pokemon/types";
+import { CPColors } from "../interfaces/colors";
 
 /**
  * Funcao para setar valor em state imutavel
@@ -15,12 +16,12 @@ export function produce<T>(cb: (state: T) => void) {
 /**
  * Switch returna cor de acordo com CP
  */
-export function getColorByCP(cp: number): string {
+export function getColorByCP(cp: number) {
   if (cp <= 500) {
     return colorCp.Orange;
-  } else if (cp >= 501 && cp <= 1000) {
+  } if (cp <= 1000) {
     return colorCp.Purple;
-  } else if (cp >= 1001 && cp <= 1500) {
+  } else if (cp <= 1500) {
     return colorCp.Yelow;
   } else {
     return colorCp.Blue;

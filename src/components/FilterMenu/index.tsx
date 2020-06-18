@@ -24,6 +24,8 @@ const FilterMenu: React.FC = () => {
         <p className="cplabel">maxCP</p>
 
         <InputRange
+        // o que acontece a API retornar algum pokemon que tenha mais que 3904 de MaxCP? Não vai funcionar corretamente o filtro
+        // poderias passar esse valor como param, poderias dar um orderBy(maxCP) e pegar o primeiro elemento (anyway, tem várias abordagens) 
           maxValue={3904}
           minValue={0}
           value={{ max: maxCp, min: minCp }}
