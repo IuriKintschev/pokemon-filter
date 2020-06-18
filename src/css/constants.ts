@@ -1,5 +1,3 @@
-import { CPColors } from "../interfaces/colors";
-
 /**
  * Colors
  */
@@ -26,9 +24,8 @@ export const characters = {
   paragraph: "#939393",
   titleBlue: "#00A7FD",
 };
-// tipando dessa forma vc garante que nao vao colocar um número aqui e quando voce vai acessar
-// vai quebrar, ou que vc esqueça de adicionar alguma cor, isso serve também pras demais consts
-export const cp:CPColors = {
+
+export const cp = {
   Orange: "#F87060", // 0-500
   Purple: "#662C91", // 501-1000
   Yelow: "#F5B700", // 1001-1500
