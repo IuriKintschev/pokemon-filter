@@ -37,5 +37,8 @@ $ yarn install
 ```bash
 $ yarn start
 ```
+<br>
 
-## <b> !atualmente o backend não esta mais servindo os dados, infelizmente :(
+## Também esta no ar!
+
+<b>`Você encontra a aplicação acessando a seguinte URL` https://objective-wescoff-0decdc.netlify.app ou clicando na imagem a cima. </b>
