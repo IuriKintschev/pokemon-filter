@@ -37,3 +37,5 @@ $ yarn install
 ```bash
 $ yarn start
 ```
+
+## <b> !atualmente o backend não esta mais servindo os dados, infelizmente :(
