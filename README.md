@@ -37,9 +37,3 @@ $ yarn install
 ```bash
 $ yarn start
 ```
-
-<br>
-
-## Também esta no ar!
-
-<b>`Você encontra a aplicação acessando a seguinte URL` https://pensive-ardinghelli-587ab5.netlify.app/ ou clicando na imagem a cima. </b>
