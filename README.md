@@ -7,7 +7,7 @@
 
 <br>
 
-## Objetivo Iuri teste
+## Objetivo
 
 Essa aplicação deverá realizar uma consulta e trazer em tela todos os pokémons da <br> primeira geração. Você tambem poderá efetuar filtros a partir dos tipos de pokémons que <br>gostaria de vizualizar, além de por pontos de força(CP) setando um range entre <br> o mínino e o máximo.
 
